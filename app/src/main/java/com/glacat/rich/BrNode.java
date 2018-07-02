@@ -6,6 +6,8 @@ package com.glacat.rich;
 
 public class BrNode implements Node{
 
+    private int startIndex;
+
     public BrNode(){}
 
     public BrNode(int count){
@@ -24,6 +26,14 @@ public class BrNode implements Node{
 
     private String getText() {
         return text;
+    }
+
+    public int getStartIndex() {
+        return startIndex;
+    }
+
+    public void setStartIndex(int startIndex) {
+        this.startIndex = startIndex;
     }
 
     @Override

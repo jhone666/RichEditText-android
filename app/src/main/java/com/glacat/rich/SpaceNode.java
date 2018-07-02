@@ -6,6 +6,7 @@ package com.glacat.rich;
 
 public class SpaceNode implements Node {
 
+    private int startIndex;
     public SpaceNode(){
 
     }
@@ -17,6 +18,14 @@ public class SpaceNode implements Node {
     }
 
     private String text="&nbsp;";
+
+    public int getStartIndex() {
+        return startIndex;
+    }
+
+    public void setStartIndex(int startIndex) {
+        this.startIndex = startIndex;
+    }
 
     @Override
     public String getHtmlText(){

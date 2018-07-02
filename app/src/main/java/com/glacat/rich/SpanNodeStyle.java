@@ -1,70 +1,75 @@
 package com.glacat.rich;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+
 /**
  * Created by Administrator on 2018/6/29.
  */
 
 public class SpanNodeStyle {
 
-    private String style="";
+    //去重
+    private HashMap<String,String> mClass=new HashMap<>();
 
     public String getStyle() {
+        String style="";
+        Iterator<String> iterator = mClass.values().iterator();
+        while (iterator.hasNext()){
+            style+=iterator.next();
+        }
         return style;
-    }
-
-    public String setStyle(String style) {
-        this.style += style;
-        return this.style;
     }
 
     /**
      * 粗体
      */
-    public String setFontBold(){
-        return setStyle("font-weight:bold;");
+    public void setFontBold(){
+        mClass.put("font_bold","font-weight:bold;");
     }
     /**
      * 斜体
      */
-    public String setFontItalic(){
-        return setStyle("font-spanNodeStyle:italic;");
+    public void setFontItalic(){
+        mClass.put("font_italic","font-style:italic;");
     }
     /**
      * 删除线
      */
-    public String setFontThrough(){
-        return setStyle("text-decoration:line-through;");
+    public void setFontThrough(){
+        mClass.put("font_through","text-decoration:line-through;");
     }
 
     /**
      * 下划线
      */
-    public String setFontUnderline(){
-        return setStyle("text-decoration:underline;");
+    public void setFontUnderline(){
+        mClass.put("under_line","text-decoration:underline;");
     }
 
     /**
      * @param fontSize 字体大小
      * @return
      */
-    public String setFontSize(float fontSize){
-        return setStyle("font-size:"+fontSize+";");
+    public void setFontSize(float fontSize){
+        mClass.put("font_size","font-size:"+fontSize+";");
     }
 
     /**
      * @param color 字体颜色
      * @return
      */
-    public String setFontColor(String color){
-        return setStyle("color:"+color+";");
+    public void setFontColor(String color){
+        mClass.put("font_color","color:"+color+";");
     }
 
     /**
      * @param color 字背景颜色
      * @return
      */
-    public String setFontBgColor(String color){
-        return setStyle("background:"+color+";");
+    public void setFontBgColor(String color){
+        mClass.put("font_bgcolor","background:"+color+";");
     }
 
 }

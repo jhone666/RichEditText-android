@@ -6,6 +6,7 @@ package com.glacat.rich;
 
 public class SpanNode implements Node{
 
+    private int startIndex;
     private String text;
     private SpanNodeStyle spanNodeStyle;
 
@@ -19,6 +20,9 @@ public class SpanNode implements Node{
     }
 
     public SpanNodeStyle getSpanNodeStyle() {
+        if (this.spanNodeStyle==null){
+            this.spanNodeStyle=new SpanNodeStyle();
+        }
         return spanNodeStyle;
     }
 
@@ -26,8 +30,17 @@ public class SpanNode implements Node{
         this.spanNodeStyle = spanNodeStyle;
     }
 
+    public int getStartIndex() {
+        return startIndex;
+    }
+
+    public void setStartIndex(int startIndex) {
+        this.startIndex = startIndex;
+    }
+
     @Override
     public String getHtmlText() {
         return "<span style=\""+getSpanNodeStyle().getStyle()+"\">"+getText()+"</span>";
     }
+
 }
